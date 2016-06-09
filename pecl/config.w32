@@ -1,0 +1,13 @@
+// $Id$
+// vim:ft=javascript
+
+// If your extension references something external, use ARG_WITH
+// ARG_WITH("iword", "for iword support", "no");
+
+// Otherwise, use ARG_ENABLE
+// ARG_ENABLE("iword", "enable iword support", "no");
+
+if (PHP_IWORD != "no") {
+	EXTENSION("iword", "iword.c");
+}
+
