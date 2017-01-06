@@ -59,6 +59,31 @@ PHP_FUNCTION(iword_dictionary)
 PHP_FUNCTION(iword_unset)
  { iword_initialize(); }
 
+// iword_map — 全単語を抽出する
+PHP_FUNCTION(iword_map)
+{
+	int i; zval *src = NULL; long mode = IWORD_MODE_HTML;
+
+	// PHPから引数を受け取る
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC,
+	 "|zl", &src, &mode) == FAILURE) return;
+	// 引数が渡された場合
+	if (src != NULL) {
+		// 引数が文字列でなければ
+		if (Z_TYPE_P(src) == IS_STRING) iword_set_zval(src, mode);
+		// 値がTrueであれば中断
+		else if (Z_BVAL_P(src)) RETURN_FALSE;
+	}
+	// 単語マップの取得に失敗した時は元のFalseを返す
+	if (imap_g == NULL) RETURN_FALSE;
+	// 返すための配列を用意(return_valueはPHPが宣言済み)
+	array_init(return_value);
+	// return_value配列に順に格納していく
+	for (i = 0; imap_g[i]; i++)
+	 if ((mode & IWORD_MODE_FORBID) || IWORD_PUBLIC(imap_g[i]))
+	  add_index_long(return_value, imap_g[i] >> 16, imap_g[i] & 0xff);
+}
+
 void iword_get_key(zval *return_value, zval *src, int key, long mode) {
 	int i;
 	
