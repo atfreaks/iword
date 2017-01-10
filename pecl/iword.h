@@ -16,8 +16,6 @@ const zend_function_entry iword_functions[] = {
 	PHP_FE(iword_unset, NULL)
 	PHP_FE(iword_limit, NULL)
 	PHP_FE(iword_dictionary, NULL)
-	PHP_FE(iword_autolink, NULL)
-	PHP_FE(iword_autolink2, NULL)
 	PHP_FE(iword_map, NULL)
 	PHP_FE(iword_get_key, NULL)
 	PHP_FE(iword_get_spam, NULL)
