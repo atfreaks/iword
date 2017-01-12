@@ -72,7 +72,7 @@ PHP_FUNCTION(iword_map)
 		// 引数が文字列でなければ
 		if (Z_TYPE_P(src) == IS_STRING) iword_set_zval(src, mode);
 		// 値がTrueであれば中断
-		else if (Z_BVAL_P(src)) RETURN_FALSE;
+		else if (Z_LVAL_P(src)) RETURN_FALSE;
 	}
 	// 単語マップの取得に失敗した時は元のFalseを返す
 	if (imap_g == NULL) RETURN_FALSE;
@@ -92,7 +92,7 @@ void iword_get_key(zval *return_value, zval *src, int key, long mode) {
 		// 引数が文字列でなければ
 		if (Z_TYPE_P(src) == IS_STRING) iword_set_zval(src, mode);
 		// 値がTrueであれば中断
-		else if (Z_BVAL_P(src)) RETURN_FALSE;
+		else if (Z_LVAL_P(src)) RETURN_FALSE;
 	}
 	// 単語マップの取得に失敗した時はFalseを返す
 	if (imap_g == NULL) RETURN_FALSE;

@@ -26,41 +26,6 @@ if (function_exists('iword_map')) {
 	 echo "$start: ".substr($str, $start, $len).$br;
 }
 
-if (function_exists('iword_autolink')) {
-	test_start();
-	iword_set($str = 'iWordははてなダイアリーの単語抽出のような機能を高速に実装したプログラムです．@freaks向けのプログラムであり，中核となるプログラムは公開していませんので，必要な方は直接連絡を取って下さい．現在の速度は100万単語の辞書に対して390KByte/sec(32-bit php, 2.53GHz Core 2 Duo, DDR3 1067MHz, iWord 0.5.0 環境下)程度の速度です．呼び出し処理は0.05ms以下でオーバーヘッドはほぼないのが特徴です．');
-	echo "処理する文字: $str$br$br";
-	echo iword_autolink(false, '(%e)[%s]', 1) . $br;
-	echo iword_autolink(false) . $br;
-	// echo iword_autolink($str) . $br;
-	var_dump(iword_map(false));
-	echo $br;
-	echo $br;
-}
-
-if (function_exists('iword_autolink')) {
-	test_start();
-	iword_set($str = 'core iWord is a program for extracting words from html like Hatena diary. Being made for @freaks, the core of the program is not opened, so please contact directly if you need it. encore wordspace ecoree core', 5);
-	echo "処理する文字: $str$br$br";
-	echo iword_autolink(false, '(%e)[%s]', 1) . $br;
-	echo iword_autolink(false) . $br;
-	// echo iword_autolink($str) . $br;
-	var_dump(iword_map(false));
-	echo $br;
-	echo $br;
-}
-
-/*
-if (function_exists('iword_autolink2')) {
-	test_start();
-	iword_set($str = 'あいうえ初音ミクあああ単語');
-	echo "処理する文字: $str$br$br";
-	$data = iword_autolink2();
-	echo str_replace(array("\x01", "\x02"), array("[", "]"), $data);
-	echo $br;
-}
-*/
-
 if (function_exists('iword_get_spam')) {
 	test_start();
 	iword_set('あああアダルトああAdultすすKeywordAすSPamSpamスパム');
