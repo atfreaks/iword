@@ -27,8 +27,6 @@ PHP_FUNCTION(iword_set);
 PHP_FUNCTION(iword_unset);
 PHP_FUNCTION(iword_limit);
 PHP_FUNCTION(iword_dictionary);
-PHP_FUNCTION(iword_autolink);
-PHP_FUNCTION(iword_autolink2);
 PHP_FUNCTION(iword_map);
 PHP_FUNCTION(iword_get_key);
 PHP_FUNCTION(iword_get_spam);
