@@ -39,12 +39,12 @@ int iword_size, iword_bcount, iword_needed, iword_limit, iword_key = IWORD_KEY;
 char *iword_object = NULL;
 
 // iWordの辞書設定
-void iword_set_key(int key) {
+void iword_set_key(size_t key) {
 	iword_key = 0x7fffffff & ((key * 0x75641723) ^ IWORD_KEY);
 }
 
 // iWordの辞書設定
-void iword_set_strkey(char *str, int len) {
+void iword_set_strkey(char *str, size_t len) {
 	int i = 0, c = IWORD_KEY;
 	for (; i < len; i++)
 	 c = (c * 0x37145713 ^ 0x83337618) + str[i];

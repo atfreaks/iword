@@ -22,7 +22,7 @@ void iword_set_zval(zval *arg, long mode)
 
 PHP_FUNCTION(iword_set) {
 	long mode = IWORD_MODE_HTML | IWORD_MODE_FORBID;
-	char *arg; int arg_len;
+	char *arg; size_t arg_len;
 	
 	// PHPから引数を受け取る
 	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC,
@@ -46,7 +46,7 @@ PHP_FUNCTION(iword_limit)
 // iword_dictionary ― iwordで処理する辞書の設定
 PHP_FUNCTION(iword_dictionary)
 {
-	char *str; int len;
+	char *str; size_t len;
 	
 	// PHPから引数を受け取る
 	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC,
