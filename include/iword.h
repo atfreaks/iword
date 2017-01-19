@@ -38,8 +38,8 @@ int iword_seek(char *s);
 long long *iword_map(char *s, int size, int mode);
 int iword_mask();
 void iword_set_limit(int num);
-void iword_set_key(int key);
-void iword_set_strkey(char *str, int len);
+void iword_set_key(size_t key);
+void iword_set_strkey(char *str, size_t len);
 
 // 親プログラム用
 int iword_load(char *filename);
